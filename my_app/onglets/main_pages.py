@@ -111,7 +111,7 @@ def main_page():
 
 
 
-        data = fetch(session, f"http://0.0.0.0/prediction/?HighBP={int(listeReplace[0][0])}&HighChol={int(listeReplace[1][0])}&CholCheck={int(listeReplace[2][0])}&BMI={BMI}&Smoker={int(listeReplace[3][0])}&Stroke={int(listeReplace[4][0])}&HeartDiseaseorAttack={int(listeReplace[5][0])}&PhysActivity={int(listeReplace[6][0])}&Fruits={int(listeReplace[7][0])}&Veggies={int(listeReplace[8][0])}&HvyAlcoholConsump={int(listeReplace[9][0])}&AnyHealthcare={int(listeReplace[10][0])}&NoDocbcCost={int(listeReplace[11][0])}&GenHlth={int(listeReplace[12][0])}&MentHlth={MentHlth}&PhysHlth={PhysHlth}&DiffWalk={int(listeReplace[13][0])}&Sex={int(listeReplace[14][0])}&Age={Age}&Education={int(listeReplace[15][0])}&Income={int(listeReplace[16][0])}")
+        data = fetch(session, f"https://projectapidb.herokuapp.com/prediction/?HighBP={int(listeReplace[0][0])}&HighChol={int(listeReplace[1][0])}&CholCheck={int(listeReplace[2][0])}&BMI={BMI}&Smoker={int(listeReplace[3][0])}&Stroke={int(listeReplace[4][0])}&HeartDiseaseorAttack={int(listeReplace[5][0])}&PhysActivity={int(listeReplace[6][0])}&Fruits={int(listeReplace[7][0])}&Veggies={int(listeReplace[8][0])}&HvyAlcoholConsump={int(listeReplace[9][0])}&AnyHealthcare={int(listeReplace[10][0])}&NoDocbcCost={int(listeReplace[11][0])}&GenHlth={int(listeReplace[12][0])}&MentHlth={MentHlth}&PhysHlth={PhysHlth}&DiffWalk={int(listeReplace[13][0])}&Sex={int(listeReplace[14][0])}&Age={Age}&Education={int(listeReplace[15][0])}&Income={int(listeReplace[16][0])}")
         my_bar = st.progress(0)
 
 
@@ -119,11 +119,11 @@ def main_page():
             time.sleep(0.01)
             my_bar.progress(percent_complete + 1)
 
-        if data == 0:
+        if data == "0":
 
            st.write("Pas de diabètes")
 
-        elif data == 1:
+        elif data == "1":
           st.warning('Vous avez un diabète, allez consulter un medecin !', icon="⚠️")
 
           st.info(f'Vous pouvez prendre rdv sur : https://www.doctolib.fr', icon="ℹ️")
